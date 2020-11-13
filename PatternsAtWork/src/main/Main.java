@@ -1,8 +1,10 @@
 package main;
+
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import gui.GUI;
+import gui.SimpleGUI;
+import objects.objectsutility.GameObjectLoader;
 
 public class Main {
 
@@ -14,7 +16,8 @@ public class Main {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 				} catch (Exception useDefault) {
 				}
-				new GUI();
+				new SimpleGUI();
+				GameObjectLoader.getGameObjects();
 			}
 		};
 		SwingUtilities.invokeLater(r);
