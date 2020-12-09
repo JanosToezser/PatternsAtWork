@@ -3,6 +3,7 @@ package objects.animals;
 import java.awt.Color;
 
 import objects.GameObject;
+import states.RestingState;
 import strategies.feedstrategies.FeedingStrategy;
 import strategies.interactionstrategies.InteractionStrategy;
 import strategies.movementstrategies.MovementStrategy;
@@ -56,13 +57,13 @@ public class Animal extends GameObject {
 	 * @param interactionStrategy:  How the animal interacts with other animals.
 	 */
 
-	public Animal(int spawningLocationX, int spawningLokationY, int representationSize, Color color,
-			int maxHealth, int currentHealth, int maxAge, int currentAge, int hunger, boolean heat,
-			int preyValueQuotient, String name, String representation,
+	public Animal(int representationSize, String name, int spawningLocationX, int spawningLokationY,
+			Color color, int maxHealth, int currentHealth, int maxAge, int currentAge, int hunger,
+			boolean heat, int preyValueQuotient, String representation,
 			FeedingStrategy feedingStrategy, RestingStrategy restingStrategy,
 			MovementStrategy movementStragegy, ReproductionStrategy reproductionStrategy,
 			InteractionStrategy interactionStrategy) {
-		super(representationSize, spawningLocationX, spawningLokationY, color);
+		super(representationSize, name, spawningLocationX, spawningLokationY, color);
 		this.maxHealth = maxHealth;
 		this.currentHealth = currentHealth;
 		this.maxAge = maxAge;
@@ -185,6 +186,11 @@ public class Animal extends GameObject {
 
 	public InteractionStrategy getInteractionStrategy() {
 		return interactionStrategy;
+	}
+
+	public RestingState getCurrentState() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

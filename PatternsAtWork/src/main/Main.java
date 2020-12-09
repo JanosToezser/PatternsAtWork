@@ -17,7 +17,7 @@ public class Main {
 				} catch (Exception useDefault) {
 				}
 				new SimpleGUI();
-				GameObjectLoader.getGameObjects();
+				GameObjectLoader.getMovingGameObjects();
 			}
 		};
 		SwingUtilities.invokeLater(r);

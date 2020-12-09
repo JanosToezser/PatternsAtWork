@@ -6,8 +6,8 @@ import objects.plants.Plant;
 
 public class Kale extends Plant {
 
-	public Kale(int representationSize, int spawningLocationX, int spawningLokationY) {
-		super(representationSize, spawningLocationX, spawningLokationY, Color.GREEN);
+	public Kale(int representationSize, String name, int spawningLocationX, int spawningLokationY) {
+		super(representationSize, name, spawningLocationX, spawningLokationY, Color.GREEN);
 		this.setEddible(true);
 	}
 

@@ -31,16 +31,16 @@ public class Hare extends Animal {
 	 * @param reproductionStrategy
 	 * @param interactionStrategy
 	 */
-	public Hare(int spawningLocationX, int spawningLokationY, int representationSize, Color color,
-			int maxHealth, int currentHealth, int maxAge, int currentAge, int hunger, boolean heat,
-			int preyValueQuotient, String name, String representation,
+	public Hare(int representationSize, String name, int spawningLocationX, int spawningLokationY,
+			Color color, int maxHealth, int currentHealth, int maxAge, int currentAge, int hunger,
+			boolean heat, int preyValueQuotient, String representation,
 			FeedingStrategy feedingStrategy, RestingStrategy restingStrategy,
 			MovementStrategy movementStragegy, ReproductionStrategy reproductionStrategy,
 			InteractionStrategy interactionStrategy) {
-		super(spawningLocationX, spawningLokationY, representationSize, color, maxHealth,
-				currentHealth, maxAge, currentAge, hunger, heat, preyValueQuotient, name,
-				representation, feedingStrategy, restingStrategy, movementStragegy,
-				reproductionStrategy, interactionStrategy);
+		super(representationSize, name, spawningLocationX, spawningLokationY, color, maxHealth,
+				currentHealth, maxAge, currentAge, hunger, heat, preyValueQuotient, representation,
+				feedingStrategy, restingStrategy, movementStragegy, reproductionStrategy,
+				interactionStrategy);
 		// TODO Auto-generated constructor stub
 	}
 
