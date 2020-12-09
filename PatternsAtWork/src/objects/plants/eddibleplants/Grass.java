@@ -6,8 +6,9 @@ import objects.plants.Plant;
 
 public class Grass extends Plant {
 
-	public Grass(int representationSize, int spawningLocationX, int spawningLokationY) {
-		super(representationSize, spawningLocationX, spawningLokationY, Color.YELLOW);
+	public Grass(int representationSize, String name, int spawningLocationX,
+			int spawningLokationY) {
+		super(representationSize, name, spawningLocationX, spawningLokationY, Color.YELLOW);
 		this.setEddible(true);
 	}
 

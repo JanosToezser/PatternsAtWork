@@ -4,18 +4,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class GameObject {
-	int size;
-
+	private int size;
+	private String name;
 	private int currentX;
 	private int currentY;
-	Color color;
+	private Color color;
 
-	public GameObject(int representationSize, int spawningLocationX, int spawningLokationY,
-			Color color) {
+	public GameObject(int representationSize, String name, int spawningLocationX,
+			int spawningLokationY, Color color) {
 		this.size = representationSize;
 		this.setCurrentX(spawningLocationX);
 		this.setCurrentY(spawningLokationY);
-		this.color = color;
+		this.setColor(color);
 
 	}
 
@@ -25,7 +25,7 @@ public class GameObject {
 	}
 
 	public void draw(Graphics g) {
-		g.setColor(color);
+		g.setColor(getColor());
 		g.fillRect(getCurrentX(), getCurrentY(), size, size);
 	}
 
@@ -43,5 +43,21 @@ public class GameObject {
 
 	public void setCurrentY(int currentY) {
 		this.currentY = currentY;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 }

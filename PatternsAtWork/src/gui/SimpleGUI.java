@@ -1,24 +1,24 @@
 package gui;
 
-//import javafx.scene.paint.Color;
-import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Collection;
 
 import javax.swing.JFrame;
 
-import objects.animals.SimpleAnimal;
-import objects.animals.herbivore.SimpleHare;
+import objects.objectsutility.GameObjectLoader;
 
 public class SimpleGUI {
 	private static final int DRAWING_WIDTH = 600;
-	private SimpleAnimal gameObject = new SimpleHare(10, 123, 123, Color.DARK_GRAY);
+
+	private Collection<Object> movingGameObjects;
+	private Collection<Object> nonMovingGameObjects;
 
 	private JFrame frame;
 
-	private SimpleMovingPanel movingPanel;
+	private SimpleGameObjectDrawingPanel drawingPanel;
 
-	private SimpleMovmentController movementController;
+	private SimpleMovementController movementController;
 
 	public SimpleGUI() {
 
@@ -32,14 +32,19 @@ public class SimpleGUI {
 			}
 		});
 
-		movingPanel = new SimpleMovingPanel(gameObject, DRAWING_WIDTH);
-		frame.add(movingPanel);
+		movingGameObjects = GameObjectLoader.getMovingGameObjects();
+		nonMovingGameObjects = GameObjectLoader.getNonMovingGameObjects();
+
+		drawingPanel = new SimpleGameObjectDrawingPanel(movingGameObjects, nonMovingGameObjects,
+				DRAWING_WIDTH);
+		frame.add(drawingPanel);
 
 		frame.pack();
 		frame.setLocationByPlatform(true);
 		frame.setVisible(true);
 
-		movementController = new SimpleMovmentController(this, gameObject);
+		movementController = new SimpleMovementController(this, movingGameObjects,
+				nonMovingGameObjects);
 		new Thread(movementController).start();
 	}
 
@@ -48,7 +53,8 @@ public class SimpleGUI {
 		System.exit(0);
 	}
 
-	public void repaintMovingPanel() {
-		movingPanel.repaint();
+	public void repaintDrawingPanel() {
+
+		drawingPanel.repaint();
 	}
 }
